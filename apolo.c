@@ -18,13 +18,8 @@ int main() {
     double (*B)[size];
     double (*C)[size];
 
-    // Calculate the total size of the matrices
-    size_t total_size = size * size * sizeof(double);
-
     // Asigna la memoria para las matrices alineadas usando aligned_alloc
-    A = aligned_alloc(64, total_size);
-    B = aligned_alloc(64, total_size);
-    C = aligned_alloc(64, total_size);
+    double A[size][size] __attribute__((aligned(64))), B[size][size] __attribute__((aligned(64))), C[size][size] __attribute__((aligned(64)));
 
     if (A == NULL || B == NULL || C == NULL) {
         perror("Failed to allocate memory");
