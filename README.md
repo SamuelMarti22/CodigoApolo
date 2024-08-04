@@ -1,0 +1,2 @@
+To execute the code simply enter the command ./apolo, if you want to compile the command it must be gcc -o apolo apolo.c -fopenmp.
+I used OpenMP to parallelize the matrix initialization and matrix multiplication cycles, and I also used pointers to better manage memory access.

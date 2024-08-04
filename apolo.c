@@ -13,12 +13,12 @@ int main() {
     int size =  MIN_SIZE + (rand() % MAX_SIZE), iterator = 0;
     double time_spent = 0.0;
 
-    // Punteros para las matrices
+    // Pointers for the matrix
     double (*A)[size];
     double (*B)[size];
     double (*C)[size];
 
-    // Asigna la memoria para las matrices alineadas usando aligned_alloc
+    // Allocate memory for aligned matrix using aligned_alloc
     double A[size][size] __attribute__((aligned(64))), B[size][size] __attribute__((aligned(64))), C[size][size] __attribute__((aligned(64)));
 
     if (A == NULL || B == NULL || C == NULL) {
@@ -31,7 +31,7 @@ int main() {
 
         clock_t begin_time = clock();
 
-        // Paralelizar la inicialización de las matrices
+        // Parallelize matrix initialization
         #pragma omp parallel for collapse(2)
         for(int i = 0; i < size; i++){
             for(int j = 0; j < size; j++){
@@ -41,7 +41,7 @@ int main() {
             }
         }
 
-        // Paralelizar la multiplicación de matrices
+        // Parallelize matrix multiplication
         #pragma omp parallel for
         for(int j = 0; j < size/2; j++){
             for(int k = 0; k < size; k++){
