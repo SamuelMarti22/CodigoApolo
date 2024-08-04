@@ -4,13 +4,13 @@
 #include <omp.h>
 
 #define N 50
-#define MIN_SIZE 999
-#define MAX_SIZE 1000
+#define MIN_SIZE 2
+#define MAX_SIZE 5000
 #define MAX_NUM 10000000.0
 
 int main() {
     srand((unsigned) time(NULL));
-    int size = 2000, iterator = 0;
+    int size =  MIN_SIZE + (rand() % MAX_SIZE), iterator = 0;
     double time_spent = 0.0;
 
     // Punteros para las matrices
