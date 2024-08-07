@@ -49,10 +49,5 @@ int main() {
     printf("Size of matrices: %d \n", size);
     printf("Running time: %f \n", (time_spent / N));
 
-    // Free the allocated memory
-    free(A);
-    free(B);
-    free(C);
-
     return 0;
 }
