@@ -14,17 +14,10 @@ int main() {
     double time_spent = 0.0;
 
     // Pointers for the matrix
-    double (*A)[size];
-    double (*B)[size];
-    double (*C)[size];
+    double A[size][size] __attribute__((aligned(64)));
+    double B[size][size] __attribute__((aligned(64)));
+    double C[size][size] __attribute__((aligned(64)));
 
-    // Allocate memory for aligned matrix using aligned_alloc
-    double A[size][size] __attribute__((aligned(64))), B[size][size] __attribute__((aligned(64))), C[size][size] __attribute__((aligned(64)));
-
-    if (A == NULL || B == NULL || C == NULL) {
-        perror("Failed to allocate memory");
-        return EXIT_FAILURE;
-    }
 
     while (iterator++ < N) {
         printf("Running iteration number: %d\n", iterator);
