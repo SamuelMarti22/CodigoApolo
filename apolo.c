@@ -14,9 +14,7 @@ int main() {
     double time_spent = 0.0;
 
     // Pointers for the matrix
-    double A[size][size] __attribute__((aligned(64)));
-    double B[size][size] __attribute__((aligned(64)));
-    double C[size][size] __attribute__((aligned(64)));
+    double A[size][size] __attribute__((aligned(64))), B[size][size] __attribute__((aligned(64))), C[size][size] __attribute__((aligned(64)));
 
 
     while (iterator++ < N) {
